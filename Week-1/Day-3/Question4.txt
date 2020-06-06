@@ -1,0 +1,24 @@
+Q.Given an array of integers arr, a lucky integer is an integer which has a frequency in the array equal to its value.
+
+Return a lucky integer in the array. If there are multiple lucky integers return the largest of them. If there is no lucky integer return -1.
+
+
+
+
+
+class Solution:
+    def findLucky(self, arr: List[int]) -> int:
+        dict={}
+        for i in arr:
+            if i in dict:
+                dict[i]=dict[i]+1
+            else:
+                dict[i]=1
+                
+        ans=-1
+        for x, y in dict.items():
+            if x==y:
+                ans=max(ans, x)
+                
+                
+        return ans

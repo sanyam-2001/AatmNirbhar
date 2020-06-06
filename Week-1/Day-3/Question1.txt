@@ -1,0 +1,30 @@
+Q.You are given an array of N+2 integer elements. All elements of the array are in range 1 to N. And all elements occur once except two numbers which occur twice. Find the two repeating numbers.
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int test;
+	cin>>test;
+	while(test--){
+	    int n;
+	    cin>>n;
+	    n=n+2;
+	    int arr[n];
+	    
+	    for(int i=0;i<n;i++){
+	        cin>>arr[i];
+	    }
+	    
+	    sort(arr, arr+n);
+	    int counter=2;
+	    for(int i=0;i<n-1;i++){
+	        if(arr[i]==arr[i+1]){cout<<arr[i]<<" ";counter--;}
+	        if(counter==0){break;}
+	    }
+	    cout<<endl;
+	    
+	}
+	return 0;
+}

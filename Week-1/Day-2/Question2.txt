@@ -1,0 +1,17 @@
+Q.Given a m * n matrix grid which is sorted in non-increasing order both row-wise and column-wise. 
+
+Return the number of negative numbers in grid.
+
+class Solution {
+public:
+    int countNegatives(vector<vector<int>>& grid) {
+        int counter=0;
+        for(int i=grid.size()-1;i>=0;i--){
+            for(int j=grid[i].size()-1;j>=0;j--){
+                if(grid[i][j]<0){counter++;}
+                else{break;}
+            }
+        }
+        return counter;
+    }
+};

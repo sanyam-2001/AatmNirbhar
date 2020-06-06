@@ -1,0 +1,32 @@
+QVaibhav likes to play with numbers and he has n numbers. One day he was placing the numbers on the playing board just to count that how many numbers he have. He was placing the numbers in increasing order i.e. from 1 to n. But when he was putting the numbers back into his bag, some numbers fell down onto the floor. He picked up all the numbers but one number, he couldn't find. Now he have to go somewhere urgently, so he asks you to find the missing number.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int test;
+
+	cin>>test;
+	while(test--){
+	   int n;
+	   cin>>n;
+	   n=n-1;
+        int arr[n];
+        bool done=false;
+        for(int i=0;i<n;i++){
+            cin>>arr[i];
+        }
+        sort(arr, arr+n);
+        int counter=1;
+        for(int i=0;i<n;i++){
+            if(arr[i]!=counter){cout<<counter<<endl;done=true;break;}
+            else{counter++;}
+        }
+        if(done==false){cout<<n+1<<endl;}
+
+
+
+
+	}
+	return 0;
+}
