@@ -1,0 +1,18 @@
+Given a column title as appear in an Excel sheet, return its corresponding column number.
+
+
+class Solution {
+public:
+    int titleToNumber(string s) {
+        int len = s.size();
+        len--;
+        int ans=0;
+        for(int i =0;i<s.size();i++){
+            int n= s[i] -'A';
+            n++;
+            ans=ans+ n*pow(26, len);
+            len--;
+        }
+        return ans;
+    }
+};

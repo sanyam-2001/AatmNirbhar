@@ -1,0 +1,80 @@
+Given a string s formed by digits ('0' - '9') and '#' . We want to map s to English lowercase characters as follows:
+
+
+
+
+class Solution:
+    def freqAlphabets(self, s: str) -> str:
+        x=[]
+        str=""
+        i=0
+        while i < len(s)-2:
+
+            if s[i+2]=='#':
+                x.append(s[i]+s[i+1]+s[i+2])
+                i=i+3
+            else:
+                x.append(s[i])
+                i=i+1
+        if i <len(s):
+            x.append(s[len(s)-2])
+            x.append(s[len(s)-1])
+
+        for i in x:
+            if i=='1':
+                str=str+'a'
+            elif i=='2':
+                str=str+'b'
+            elif i=='3':
+                str=str+'c'
+            elif i=='4':
+                str=str+'d'
+            elif i=='5':
+                str=str+'e'
+            elif i=='6':
+                str=str+'f'
+            elif i=='7':
+                str=str+'g'
+            elif i=='8':
+                str=str+'h'
+            elif i=='9':
+                str=str+'i'
+            elif i=='10#':
+                str=str+'j'
+            elif i=='11#':
+                str=str+'k'
+            elif i=='12#':
+                str=str+'l'
+            elif i=='13#':
+                str=str+'m'
+            elif i=='14#':
+                str=str+'n'
+            elif i=='15#':
+                str=str+'o'
+            elif i=='16#':
+                str=str+'p'
+            elif i=='17#':
+                str=str+'q'
+            elif i == '18#':
+                str = str + 'r'
+            elif i == '19#':
+                str = str + 's'
+            elif i == '20#':
+                str = str + 't'
+            elif i == '21#':
+                str = str + 'u'
+            elif i == '22#':
+                str = str + 'v'
+            elif i == '23#':
+                str = str + 'w'
+            elif i == '24#':
+                str = str + 'x'
+            elif i == '25#':
+                str = str + 'y'
+            elif i == '26#':
+                str = str + 'z'
+                
+        return str
+    
+
+

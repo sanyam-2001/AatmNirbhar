@@ -1,0 +1,17 @@
+Given a non-empty integer array of size n, find the minimum number of moves required to make all array elements equal, where a move is incrementing n - 1 elements by 1.
+
+class Solution {
+public:
+    int minMoves(vector<int>& nums) {
+        long add=0, min=INT_MAX;
+        
+         for(int i=0;i<nums.size();i++){
+             add=add+nums[i];
+             if(nums[i]<min){min=nums[i];}
+         }
+        
+        return add - min*nums.size();
+        
+        
+    }
+};

@@ -1,0 +1,44 @@
+You are given a string A, consisting of '(', ')', '[', ']', '{' and '}' only. You have to find the maximum length of the balanced string after performing some valid operation(s).
+
+
+
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+
+int main(){
+	int test;
+	cin>>test;
+	while(test--){
+		string s;
+	cin>>s;
+	int round=0, rc=0, square=0, sc=0, curly=0, cc=0; 
+	for(int i=0;i<s.size();i++){
+		switch(s[i]){
+			case '(':
+			round++;
+			break;
+			case ')':
+			rc++;
+			break;
+			case '[':
+			square++;
+			break;
+			case ']':
+			sc++;
+			break;
+			case '{':
+			curly++;
+			break;
+			case '}':
+			cc++;
+			break;
+			}
+	}
+
+	cout<<(min(round, rc)+min(square, sc)+min(curly, cc))*2<<endl;
+	}
+	return 0;
+}

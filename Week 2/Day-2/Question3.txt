@@ -1,0 +1,27 @@
+Q3.Danny has a possible list of passwords of Manny's facebook account. All passwords length is odd. But Danny knows that Manny is a big fan of palindromes. So, his password and reverse of his password both should be in the list.
+
+You have to print the length of Manny's password and it's middle character.
+
+Note : The solution will be unique.
+
+
+def revstring(a):
+    ans = ""
+    for i in a:
+        ans = i + ans
+
+    return ans
+
+
+n = int(input())
+password = []
+for i in range(0, n):
+    temp = input()
+    password.append(temp)
+
+for i in password:
+    if revstring(i) in password:
+        print(len(i), end=" ")
+        print(i[int((len(i) -1) / 2)])
+        break
+
