@@ -1,0 +1,7 @@
+bool isCircular(Node *head)
+{
+   for(Node *p=head->next;;p=p->next){
+       if(p==head){return true;}
+       if(p==NULL){return false;}
+   }
+}

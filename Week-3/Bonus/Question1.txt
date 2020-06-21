@@ -1,0 +1,18 @@
+int addTwoNumbers(Node* l1, Node* l2) {
+      int num1=0, num2=0, c1=0, c2=0;
+       while(l1){
+        num1= num1 + l1->data*power(c1);
+        c1++;
+        l1=l1->next;
+       }
+        while(l2){
+         num2= num2 + l2->data*power(c2);
+            c2++;
+         l2=l2->next;
+        }
+        int sum = num1 + num2;
+
+        return sum;
+
+
+    }

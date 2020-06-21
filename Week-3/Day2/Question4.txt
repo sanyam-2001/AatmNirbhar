@@ -1,0 +1,29 @@
+int countNodesinLoop(struct Node *head)
+{
+     vector<Node*> arr;
+     
+     Node *p=head;
+     
+     while(p!=NULL){
+         if(!count(arr.begin(), arr.end(), p)){
+             arr.push_back(p);
+             p=p->next;
+         }
+         else{
+             break;
+         }
+         
+     }
+     if(p==NULL){return 0;}
+     int i=0;
+     for(i=0;i<arr.size();i++){
+         if(arr[i]==p){break;}
+     }
+     return arr.size()-i;
+     
+     
+     
+     
+}
+
+

@@ -1,0 +1,44 @@
+q.Given a Linked List of integers, write a function to modify the linked list such that all even numbers appear before all the odd numbers in the modified linked list. Also, keep the order of even and odd numbers same.
+
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+struct node{
+    int info;
+    node *next;
+}*head;
+int n;
+
+int main() {
+   int test;
+   cin>>test;
+
+   while(test--){
+
+       cin>>n;
+       vector<int> odd;
+       head=new node;
+       node *p = head;
+       for(int i=0;i<n;i++){
+        cin>>p->info;
+        node *box=new node;
+        p->next=box;
+        p=box;
+       }
+        p->next=NULL;
+
+
+       for(node*t=head;t->next!=NULL;t=t->next){
+           if(t->info%2==0){cout<<t->info<<" ";}
+           else odd.push_back(t->info);
+       }
+
+       for(int i=0;i<odd.size();i++){
+           cout<<odd[i]<<" ";
+       }
+       cout<<endl;
+   }
+	return 0;
+}

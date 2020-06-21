@@ -1,0 +1,36 @@
+
+Node* reverseList(Node *head)
+{
+  Node * current=head, *prev=NULL, *follow=NULL;
+  while(current!=NULL){
+    follow=current->next;
+    current->next=prev;
+    prev=current;
+    current=follow;
+  }
+  head=prev;
+  return head;
+
+}
+#include <bits/stdc++.h>
+bool isPalindrome(Node *head)
+{
+    vector<int> start;
+    vector<int> end;
+    for(Node *p=head;p!=NULL;p=p->next){
+        start.push_back(p->data);
+    }
+    head=reverseList(head);
+    
+    for(Node *p=head;p!=NULL;p=p->next){
+        end.push_back(p->data);
+    }
+    
+    for(int i=0;i<start.size();i++){
+        if(start[i]!=end[i])
+            return false;
+    }
+    
+    return true;
+}
+

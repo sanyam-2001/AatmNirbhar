@@ -1,0 +1,11 @@
+int detectloop(Node *head) {
+    
+   Node *p=head, *q=head;
+   while(p &&q&&q->next){
+       p=p->next;
+       q=q->next->next;
+       if(p==q)
+       return 1;
+   }
+   return 0;
+}

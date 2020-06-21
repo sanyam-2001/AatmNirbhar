@@ -1,0 +1,29 @@
+void insert(Node *head, int val){
+    Node *p;
+    for(p=head;p->next!=NULL;p=p->next);
+    
+    Node *box=(Node*)malloc(sizeof(Node));
+    box->data=val;
+    box->next=NULL;
+    
+    p->next=box;
+}
+
+Node* findIntersection(Node* head1, Node* head2)
+{
+    Node *ans=(Node*)malloc(sizeof(Node));
+    ans->next=NULL;
+    Node *f, *s=head2;
+    for(Node *k=head1;k!=NULL;k=k->next){
+        for(f=s;f!=NULL;f=f->next){
+            if(f->data==k->data){
+                insert(ans, k->data);
+                s=f;
+                break;
+            }
+        }
+    }
+    
+    return ans->next;
+    
+}
