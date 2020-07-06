@@ -1,0 +1,22 @@
+class Solution {
+    public:
+        bool isIsomorphic(string s, string t) { 
+            unordered_map<char,char> u,v; 
+            if(s.size()!=t.size()) return false; 
+            for(int i=0;i<s.size();i++){ 
+                  if(u.find(s[i])==u.end()) 
+                        u[s[i]] = t[i]; 
+                  else{ 
+                    if(u[s[i]]!=t[i]) return false;
+                  }
+            }   
+            for(int i=0;i<s.size();i++){ 
+            if(v.find(t[i])==v.end()) 
+              v[t[i]] = s[i]; 
+            else{ 
+            if(v[t[i]] != s[i]) return false;
+            }
+            }
+            return true;
+    }
+};

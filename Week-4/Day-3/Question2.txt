@@ -1,0 +1,32 @@
+    bool sortbysecdesc(const pair<char,int> &a,
+                   const pair<char,int> &b)
+{
+       return a.second>b.second;
+}
+
+    void topKFrequent(vector<int>& nums, int k) {
+        map<int, int> mymap;
+        for(unsigned int i=0;i<nums.size();i++){
+            auto j = mymap.find(nums[i]);
+            if(j==mymap.end()){
+                mymap[nums[i]]=1;
+            }
+            else{
+                int temp = mymap[nums[i]];
+                mymap[nums[i]]=temp+1;
+            }
+        }
+         vector<pair<int, int>> v;
+        for(auto i:mymap){
+            v.push_back(make_pair(i.first, i.second));
+        }
+        sort(v.begin(), v.end(), sortbysecdesc);
+        vector<int> ans;
+        for(unsigned int i=0;i<k;i++){
+            ans.push_back(v[i].first);
+        }
+        
+        return ans;
+
+    }
+    
