@@ -1,0 +1,19 @@
+vector<int> arr;
+
+void inorder(Node* root){
+    if(root!=NULL){
+        inorder(root->left);
+        arr.push_back(root->data);
+        inorder(root->right);
+    }
+    
+}
+bool isBST(Node* root) {
+    arr.clear();
+    inorder(root);
+    
+    for(int i=0;i<arr.size()-1;i++){
+        if(arr[i+1]<=arr[i]){return false;}
+    }
+    return true;
+}

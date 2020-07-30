@@ -1,0 +1,70 @@
+ TreeNode* p=root;
+        TreeNode* q=NULL;
+        while(p)
+        {
+
+            if(p->val>X)
+            {
+                q=p;
+                p=p->left;
+                continue;
+            }
+
+            else if(p->val<X)
+            {
+                q=p;
+                p=p->right;
+                continue;
+            }
+
+            else
+            {
+
+                if(!p->left)
+                {
+                    if(q)
+                    {
+                        if(q->left==p)
+                        q->left=p->right;
+                        else
+                        q->right=p->right;
+                    }
+                    else
+                    root=p->right;
+                    delete p;
+                }
+                else if(!p->right)
+                {
+                    if(q)
+                    {
+                        if(q->left==p)
+                        q->left=p->left;
+                        else
+                        q->right=p->left;
+                    }
+                    else
+                    root=p->left;
+                    delete p;
+                }
+                else
+                {
+                    TreeNode* succ=p->right;
+                    TreeNode* succparent=p;
+                    while(succ->left)
+                    {
+                        succparent=succ;
+                        succ=succ->left;
+                    }
+                    if(succparent==p)
+                    p->right=succ->right;
+                    else
+                    succparent->left=succ->right;
+
+                    p->val=succ->val;
+                    delete succ;
+                }
+                p=NULL;
+                return root;
+            }
+        }
+        return root;

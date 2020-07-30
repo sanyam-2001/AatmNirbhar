@@ -1,0 +1,17 @@
+class Solution {
+public:
+    vector<int> numOfBurgers(int tomato, int cheese) {
+        vector<int> ans;
+        int big = (tomato/2) - cheese;
+        int small = 2*cheese - (tomato/2);
+        
+        if((4*big + 2*small == tomato) && (big + small==cheese) && big>=0 && small>=0){
+            ans.push_back(big);
+            ans.push_back(small);
+
+        }
+        
+        return ans;
+        
+    }
+};

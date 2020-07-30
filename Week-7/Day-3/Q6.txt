@@ -1,0 +1,25 @@
+vector<pair<int, Node*>> arr;
+
+void inorder(Node* root){
+    if(root!=NULL){
+        inorder(root->left);
+        pair<int, Node*> temp;
+        temp.first=root->data;
+        temp.second=root;
+        arr.push_back(temp);
+        inorder(root->right);
+    }
+    
+}
+Node * inOrderSuccessor(Node *root, Node *x)
+{
+    arr.clear();
+    inorder(root);
+    for(int i=0;i<arr.size();i++){
+        if(arr[i].first==x->data){
+            if(i==arr.size()-1){return NULL;}
+            return arr[i+1].second;
+        }
+        
+    }
+}
